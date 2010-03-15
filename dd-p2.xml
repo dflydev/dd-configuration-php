@@ -1,0 +1,26 @@
+<packages xmlns="http://dd-p2.dflydev.com/2010">
+    <package>
+        <version>0.1</version>
+        <name>Dragonfly Development PHP Configuration Library</name>
+        <url>http://github.com/dflydev/dd-configuration-php</url>
+        <copyright>Copyright (c) 2010 Dragonfly Development</copyright>
+        <license>Licensed under the New BSD License.</license>
+        <files>
+            <file name="README" />
+            <file name="LICENSE.txt" />
+            <glob name="libs" pattern="lib/dd_configuration_*.php" />
+        </files>
+        <outputs>
+            <output name="dd-configuration-php-libs">
+                <includeFile name="README" />
+                <includeFile name="LICENSE.txt" />
+                <includeGlob name="libs" stripPrefix="lib/" />
+            </output>
+            <output name="dd-configuration-php-full">
+                <includeFile name="README" />
+                <includeFile name="LICENSE.txt" />
+                <includeGlob name="libs" />
+            </output>
+        </outputs>
+    </package>
+</packages>
