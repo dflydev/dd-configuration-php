@@ -24,6 +24,12 @@ class dd_configuration_PathResourceLoader implements dd_configuration_IResourceL
     private $callingFile;
 
     /**
+     * Paths
+     * @var array
+     */
+    private $paths = array();
+
+    /**
      * Appended paths
      * @var array
      */
@@ -42,6 +48,14 @@ class dd_configuration_PathResourceLoader implements dd_configuration_IResourceL
     public function __construct($callingFile = null, $paths = null, $prependedPaths = null, $appendedPaths = null) {
         if ( $callingFile !== null ) {
             $this->callingFile = $callingFile;
+        }
+        if ( $paths !== null ) {
+            if ( ! is_array($paths) ) {
+                $paths = array($paths);
+            }
+            foreach ( $paths as $path ) {
+                $this->paths[] = $path;
+            }
         }
         if ( $prependedPaths !== null ) {
             if ( ! is_array($prependedPaths) ) {
@@ -102,7 +116,7 @@ class dd_configuration_PathResourceLoader implements dd_configuration_IResourceL
      * @return array
      */
     public function paths() {
-        return $this->paths();
+        return $this->paths;
     }
 
     /**
