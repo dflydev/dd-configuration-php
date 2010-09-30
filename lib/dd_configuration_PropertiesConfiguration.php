@@ -34,7 +34,7 @@ class dd_configuration_PropertiesConfiguration extends dd_configuration_MapConfi
         if ( $resourceLoader === null ) {
             $trace = debug_backtrace();
             $this->resourceLoader = new dd_configuration_ClasspathResourceLoader(
-                $trace[0]['file']
+                isset($trace[0]['file']) ? $trace[0]['file'] : null
             );
         }
         else $this->resourceLoader = $resourceLoader;
