@@ -81,7 +81,12 @@ class dd_configuration_PathResourceLoader implements dd_configuration_IResourceL
      * @return string
      */
     public function find($location) {
-
+        
+        if ( strpos($location, '/') === 0 ) {
+            if ( file_exists($location) ) return $location;
+            return null;
+        }
+        
         foreach ( $this->allPaths() as $path ) {
             $testLocation = $path . '/' . $location;
             // TODO This could possibly be cached eventually.
