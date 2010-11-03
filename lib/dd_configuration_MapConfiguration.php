@@ -15,6 +15,14 @@ class dd_configuration_MapConfiguration extends dd_configuration_AbstractConfigu
     protected $map = array();
 
     /**
+     * Constructor
+     * @param array $map
+     */
+    public function __construct(Array $map = null) {
+        $this->map = $map;
+    }
+
+    /**
      * All keys
      * @return array
      */
